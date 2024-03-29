@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Selection</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        .btn-available {
+            background-color: cornsilk;
+            color: black;
+            border-color: black;
+            cursor: not-allowed;
+        }
+        .availableColors {
+            background-color: black;
+            color: white;
+        }
+        #selectedColor {
+            background-color: green;
+            color: black;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container d-flex align-items-center justify-content-center flex-column vh-100">
+      <h2>Select Phone Variant</h2>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+        Open Product Selection
+      </button>
+
+      <!-- Product Modal -->
+      <div
+        class="modal fade"
+        id="productModal"
+        tabindex="-1"
+        aria-labelledby="productModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="productModalLabel">
+                Select Storage Size and Color
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="mb-3" id="storage-options">
+                <label class="form-label">Memory</label>
+                <span> :&nbsp;</span>
+                <button type="button" class="btn btn-light" data-storage-capacity="64GB" > 64GB </button>
+                <button type="button" class="btn btn-light" data-storage-capacity="128GB"> 128GB </button>
+                <button type="button" class="btn btn-light" data-storage-capacity="256GB"> 256GB </button>
+              </div>
+
+              <div class="mb-3" id="color-options">
+                <label  class="form-label">Color</label>
+                <span> :&nbsp;</span>
+                <button type="button" class="btn btn-light color-options" data-color="Red" disabled="true">Red</button>
+                <button type="button" class="btn btn-light color-options" data-color="Black" disabled="true">Black</button>
+                <button type="button" class="btn btn-light color-options" data-color="White" disabled="true">White</button>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
+              <button type="button" class="btn btn-primary" onclick="submitSelection()"> Submit </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
